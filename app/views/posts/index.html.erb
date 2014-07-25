@@ -1,1 +1,7 @@
-<h1>Hello world</h1>
+<h1>Karma Blogger</h1>
+
+<%= link_to "New Post", new_post_path %>
+<br />
+<% @posts.each do |post| %>
+	<%= link_to post.title, post_path(post) %>
+<% end %>
