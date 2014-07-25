@@ -1,20 +1,24 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>KarmaBlogger</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-	<% flash.each do |type, message| %>
-	    <div class="flash alert-box text-center <%= type %>">
-	      <%= message %>
-	      <a href="#" class="close">&times;</a>
-	    </div>
-  	<% end %>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= content_for?(:title) ? yield(:title) : "Karma Blogger" %></title>
+    <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "vendor/modernizr" %>
+    <%= javascript_include_tag "vendor/modernizr" %>
+    <%= csrf_meta_tags %>
+  </head>
 
-<%= yield %>
+  <body>
+    <% flash.each do |type, message| %>
+    <div class="flash alert-box text-center <%= type %>">
+      <%= message %>
+      <a href="#" class="close">&times;</a>
+    </div>
+    <% end %>
 
-</body>
+    <%= yield %>
+    <%= javascript_include_tag "application" %>
+  </body>
 </html>
