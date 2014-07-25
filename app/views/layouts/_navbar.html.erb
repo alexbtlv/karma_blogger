@@ -1,7 +1,7 @@
 <nav class="top-bar" data-topbar>
   <ul class="title-area">
     <li class="name">
-      <h1></h1>
+      <h1><%= link_to "Karma Blogger", root_path %></h1>
     </li>
      <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
     <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
@@ -10,18 +10,25 @@
   <section class="top-bar-section">
     <!-- Right Nav Section -->
     <ul class="right">
-      <li><a href="#">Right Button Active</a></li>
-      <li class="has-dropdown">
-        <a href="#">Right Button Dropdown</a>
-        <ul class="dropdown">
-          <li><a href="#">First link in dropdown</a></li>
-        </ul>
-      </li>
+    	<% if user_signed_in? %>
+    	<li><%= link_to "New Story", new_post_path %></li>
+    		<li class="has-dropdown">
+       			<a href="#"><%= current_user.name %></a>
+       			<ul class="dropdown">
+       				<li><%= link_to "Settings" , edit_user_registration_path(current_user) %></li>
+	          		<li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
+	        	</ul>
+       		</li>
+	    <% else %>
+	    	<li>
+	    		<%= link_to "Sign In", new_user_session_path %>
+	    	</li>
+	    <% end %>
     </ul>
 
     <!-- Left Nav Section -->
     <ul class="left">
-      <li><a href="#">Left Nav Button</a></li>
+      <li><%= link_to "Reader", root_path %></li>
     </ul>
   </section>
 </nav>
