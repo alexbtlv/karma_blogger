@@ -18,11 +18,7 @@
         <a href="#" class="close">&times;</a>
     </div>
     <% end %>
-    <div class="row collapse">
-      <div class="small-12 small-centered columns">
-        <%= yield %>
-      </div>
-    </div>
+    <%= yield %>
     <%= javascript_include_tag "application" %>
   </body>
 </html>

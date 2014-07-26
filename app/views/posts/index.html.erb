@@ -1,5 +1,24 @@
-<div id="trianglify"></div>
+<div id="trianglify">
+	<div class="row">
+		<div class="small-12 small-centered columns">
+			<h1 class="text-center">A simple blogging app</h1>
+		</div>
+	</div>
+</div>
+<div class="row collapse">
+    <div class="small-12 small-centered columns">
+		<% @posts.each do |post| %>
+			<div class="small-12 column">
+				<h6 class="subheader">Written by <%= link_to post.user.name.capitalize, profile_path(post.user) %></h6>
+			</div>
+			<div class="small-12 columns">
+				<h3><%= link_to post.title.capitalize, post_path(post) %></h3>
+			</div>
+			<div class="small-12 columns">
+				<p><%= post.body %></p>
+			</div>
 
-<% @posts.each do |post| %>
-	<%= link_to post.title, post_path(post) %> by <%= link_to post.user.name.capitalize, profile_path(post.user) %><br/>
-<% end %>
+			<hr>
+		<% end %>
+	</div>
+</div>
