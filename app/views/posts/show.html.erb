@@ -1,6 +1,29 @@
-
-<h3><%= @post.title %></h3>
-<p><%= @post.body %></p>
-<p>by <%= link_to @post.user.name.capitalize, profile_path(@post.user) %> <%= time_ago_in_words(@post.created_at)%> ago</p>
-<br />
-<%= link_to "Edit", edit_post_path(@post) %>
+<div id="author" class="row">
+	<div class="small-12 small-centered medium-12 medium-centered large-10 large-centered columns">
+		<h3><%= link_to @post.user.name.upcase, profile_path(@post.user) %></h3>
+	</div>
+</div>
+<div class="row">
+	<div class="small-12 small-centered medium-12 medium-centered large-10 large-centered columns">
+		<h1><%= @post.title.capitalize %></h1>
+	</div>
+</div>
+<div class="row">
+	<div class="small-12 small-centered medium-12 medium-centered large-10 large-centered columns">
+		<p><%= @post.body %></p>
+	</div>
+</div>
+<div class="row">
+	<div class="small-12 small-centered medium-12 medium-centered large-10 large-centered columns">
+		<em>by <%= link_to @post.user.name.capitalize, profile_path(@post.user) %> <%= time_ago_in_words(@post.created_at)%> ago</em>
+	</div>
+</div>
+<div class="row paragraph-last">
+	<div class="small-12 small-centered medium-6 medium-centered columns text-center">
+		<% if @post.user == current_user %>
+			<em><%= link_to "Edit", edit_post_path(@post) %></em>
+		<% else %>
+			<em><%= link_to "Share your own story", new_post_path %></em>
+		<% end %>
+	</div>
+</div>
