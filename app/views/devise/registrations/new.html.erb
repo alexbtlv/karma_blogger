@@ -1,26 +1,63 @@
 <div id="trianglify-register">
   <div class="row">
-    <div class="small-12 small-centered medium-8 medium-centered large-5 large-centered columns">
+    <div class="small-12 small-centered medium-8 medium-centered large-6 large-centered columns">
       <h2 class="text-center">Sign up</h2>
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
         <%= devise_error_messages! %>
 
-        <div><%= f.label :name %><br />
-        <%= f.text_field :name, autofocus: true %></div>
+        <div class="row">
+          <div class="small-5 column">
+            <%= f.label :name, class: "right inline" %>
+          </div>
+          <div class="small-7 column">
+            <%= f.text_field :name, autofocus: true, id: "right-label" %>
+          </div>
+        </div>
 
-        <div><%= f.label :email %><br />
-        <%= f.email_field :email %></div>
+        <div class="row">
+          <div class="small-5 column">
+            <%= f.label :email, class: "right inline" %>
+          </div>
+          <div class="small-7 column">
+            <%= f.email_field :email, id: "right-label"  %>
+          </div>
+        </div>
 
-        <div><%= f.label :password %><br />
-          <%= f.password_field :password, autocomplete: "off" %></div>
+        <div class="row">
+          <div class="small-5 column">
+            <%= f.label :password, class: "right inline" %>
+          </div>
+          <div class="small-7 column">
+            <%= f.password_field :password, autocomplete: "off", id: "right-label" %>
+          </div>
+        </div>
 
-        <div><%= f.label :password_confirmation %><br />
-          <%= f.password_field :password_confirmation, autocomplete: "off" %></div>
-
-        <div><%= f.submit "Sign up" %></div>
+        <div class="row">
+          <div class="small-5 column">
+            <%= f.label :password_confirmation, class: "right inline" %>
+          </div>
+          <div class="small-7 column">
+            <%= f.password_field :password_confirmation, autocomplete: "off",  id: "right-label" %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="small-6 small-centered columns">
+            <%= f.submit "Sign up", class: "button primary round expand" %>
+          </div>
+        </div>
       <% end %>
-
-      <%= render "devise/shared/links" %>
     </div>
+  </div>
+</div>
+
+
+
+
+<div class="row">
+  <div class="small-5 column">
+
+  </div>
+  <div class="small-7 column">
+    
   </div>
 </div>
