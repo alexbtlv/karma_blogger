@@ -54,7 +54,7 @@ class PostsController < ApplicationController
   private
 
   	def set_post
-      	@post = Post.find(params[:id])
+      	@post = Post.find_by_slug(params[:id])
     end
 
     def post_params
