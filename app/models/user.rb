@@ -7,16 +7,20 @@ class User < ActiveRecord::Base
 	validates :email, presence: true, uniqueness: true
 	validates :name, presence: true, uniqueness: true
 
-  has_many :posts
+  has_many :posts, dependent: :destroy
 	
-	before_create :name_downcase
+	before_create :downcase_name, :downcase_email
 
 	def to_param
-    	name
-  	end
+    name
+  end
 
-  	def name_downcase
-  		name.downcase!
-  	end
+  def downcase_name
+  	self.name = name.downcase
+  end
+
+  def downcase_email
+    self.email = email.downcase
+  end
 
 end
