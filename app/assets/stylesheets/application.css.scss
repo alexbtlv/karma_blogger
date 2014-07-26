@@ -21,17 +21,11 @@
 @import 'partials/posts';
 @import 'partials/profile';
 
-#trianglify {
-	min-height:400px;
-	width: 100%;
-	display: block;
+html, body {
+    height: 100%;
+    margin: 0;
 }
 
 #trianglify-register {
 	min-height: 100%;
-}
-
-html, body {
-    height: 100%;
-    margin: 0;
 }
