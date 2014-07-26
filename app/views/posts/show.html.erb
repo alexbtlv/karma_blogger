@@ -1,6 +1,6 @@
 
 <h3><%= @post.title %></h3>
 <p><%= @post.body %></p>
-
+<p>by <%= link_to @post.user.name.capitalize, profile_path(@post.user) %></p>
 <br />
 <%= link_to "Edit", edit_post_path(@post) %>

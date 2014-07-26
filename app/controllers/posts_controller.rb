@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  before_filter :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
 	before_action :set_post, only: [:show, :edit, :update, :destroy]
 	
 	def index
@@ -10,7 +11,7 @@ class PostsController < ApplicationController
 	end
 
 	def new
-		@post = Post.new
+		@post = current_user.posts.new
 	end
 
 	def edit
@@ -18,7 +19,7 @@ class PostsController < ApplicationController
 	end
 
 	def create
-		@post = Post.new(post_params)
+		@post = current_user.posts.new(post_params)
 
 		respond_to do |format|
     		if @post.save
