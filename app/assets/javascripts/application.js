@@ -16,3 +16,8 @@
 //= require_tree .
 
 $(function(){ $(document).foundation(); });
+
+var t = new Trianglify();
+var pattern = t.generate(1920, 1080);
+
+document.getElementById("trianglify").setAttribute('style', 'background-image: '+pattern.dataUrl);

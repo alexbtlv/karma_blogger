@@ -1,3 +1,5 @@
+<div id="trianglify"></div>
+
 <% @posts.each do |post| %>
-	<%= link_to post.title, post_path(post) %><br/>
+	<%= link_to post.title, post_path(post) %> by <%= link_to post.user.name.capitalize, profile_path(post.user) %><br/>
 <% end %>

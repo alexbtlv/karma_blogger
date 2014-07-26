@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Post, :type => :model  do
+describe Post  do
 	let(:user) { FactoryGirl.create(:user) }
 	before { @post = user.posts.build(title: "Lorem Lorem", body: "Lorem ipsum dolor blah blah") }
 
@@ -30,13 +30,5 @@ describe Post, :type => :model  do
     describe "with blank body" do
       before { @post.body = " " }
       it { is_expected.not_to be_valid }
-    end
-
-    describe "accessible attributes" do
-      it "should not allow access to user_id" do
-        expect do
-          Post.new(user_id: user.id)
-        end.to raise_error(ActiveModel::MassAssignmentSecurity::Error)
-      end
     end
 end
