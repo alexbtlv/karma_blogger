@@ -1,16 +1,18 @@
-<p id="notice"><%= notice %></p>
+<div class="row">
+	<div class="small-12 columns">
+		<%= form_for(@post) do |f| %>
+			<div class="field">
+				<%= f.label :title %>
+				<%= f.text_field :title %>
+			</div>
+			<div class="field">
+				<%= f.label :body %>
+				<%= f.text_field :body %>
+			</div>
 
-<%= form_for(@post) do |f| %>
-	<div class="field">
-		<%= f.label :title %>
-		<%= f.text_field :title %>
+			<div class="actions">
+		    	<%= f.submit %>
+		  	</div>
+		<% end %>
 	</div>
-	<div class="field">
-		<%= f.label :body %>
-		<%= f.text_field :body %>
-	</div>
-
-	<div class="actions">
-    	<%= f.submit %>
-  	</div>
-<% end %>
+</div>

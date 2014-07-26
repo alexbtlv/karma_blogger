@@ -1,16 +1,25 @@
-<p id="notice"><%= notice %></p>
-
-<%= form_for(@post) do |f| %>
-	<div class="field">
-		<%= f.label :title %>
-		<%= f.text_field :title %>
+<div id="trianglify">
+	<div class="row">
+		<div class="small-12 small-centered columns">
+			<h1 class="text-center">Write your story</h1>
+		</div>
 	</div>
-	<div class="field">
-		<%= f.label :body %>
-		<%= f.text_field :body %>
-	</div>
+</div>
+<div class="row">
+	<div class="small-12 columns">
+		<%= form_for(@post) do |f| %>
+			<div class="field">
+				<%= f.label :title %>
+				<%= f.text_field :title %>
+			</div>
+			<div class="field">
+				<%= f.label :body %>
+				<%= f.text_field :body %>
+			</div>
 
-	<div class="actions">
-    	<%= f.submit %>
-  	</div>
-<% end %>
+			<div class="actions">
+		    	<%= f.submit %>
+		  	</div>
+		<% end %>
+	</div>
+</div>
