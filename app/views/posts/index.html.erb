@@ -8,7 +8,7 @@
 <div class="row collapse">
     <div class="small-12 small-centered columns">
 		<% @posts.each do |post| %>
-			<div class="small-12 column">
+			<div class="small-12 column preview">
 				<h6 class="subheader">Written by <%= link_to post.user.name.capitalize, profile_path(post.user) %></h6>
 			</div>
 			<div class="small-12 columns truncate" title="<%= post.title.capitalize %>">

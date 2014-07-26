@@ -1,38 +1,43 @@
-<nav class="top-bar" data-topbar>
-  <ul class="title-area">
-    <li class="name">
-      <h1><%= link_to "Karma Blogger", root_path %></h1>
-    </li>
-     <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
-    <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
-  </ul>
+<div class="fixed">
+  <nav class="top-bar" data-topbar>
+    <ul class="title-area">
+      <li class="name">
+        <h1><%= link_to "Karma Blogger", root_path %></h1>
+      </li>
+       <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+      <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+    </ul>
 
-  <section class="top-bar-section">
-    <!-- Right Nav Section -->
-    <ul class="right">
-    	<% if user_signed_in? %>
-    	<li><%= link_to "New Story", new_post_path %></li>
-    		<li class="has-dropdown">
-       			<a href="#"><%= current_user.name.capitalize %></a>
-       			<ul class="dropdown">
-              <li><%= link_to "Profile", profile_path(current_user) %></li>
-       				<li><%= link_to "Settings" , edit_user_registration_path(current_user) %></li>
-	          	<li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
-	        	</ul>
-       		</li>
-	    <% else %>
+    <section class="top-bar-section">
+      <!-- Right Nav Section -->
+      <ul class="right">
+      	<% if user_signed_in? %>
+      	<li><%= link_to "New Story", new_post_path %></li>
+      		<li class="has-dropdown">
+         			<a href="#"><%= current_user.name.capitalize %></a>
+         			<ul class="dropdown">
+                <li><%= link_to "Profile", profile_path(current_user) %></li>
+         				<li><%= link_to "Settings" , edit_user_registration_path(current_user) %></li>
+  	          	<li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
+  	        	</ul>
+         		</li>
+  	    <% else %>
+          <li>
+            <%= link_to "Register", new_user_registration_path %>
+          </li>
+  	    	<li>
+  	    		<%= link_to "Sign In", new_user_session_path %>
+  	    	</li>
+  	    <% end %>
+      </ul>
+
+      <!-- Left Nav Section -->
+      <ul class="left">
         <li>
-          <%= link_to "Register", new_user_registration_path %>
+          <div class="icon-reading"></div>
+          <%= link_to "Reader", root_path %>
         </li>
-	    	<li>
-	    		<%= link_to "Sign In", new_user_session_path %>
-	    	</li>
-	    <% end %>
-    </ul>
-
-    <!-- Left Nav Section -->
-    <ul class="left">
-      <li><%= link_to "Reader", root_path %></li>
-    </ul>
-  </section>
-</nav>
+      </ul>
+    </section>
+  </nav>
+</div>
