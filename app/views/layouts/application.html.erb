@@ -10,7 +10,7 @@
     <%= csrf_meta_tags %>
   </head>
 
-  <body>
+  <body class="<%= controller_name %> <%= action_name %>">
     <%= render partial: 'layouts/navbar' %>
     <% flash.each do |type, message| %>
     <div data-alert class="flash alert-box text-center <%= type %>">

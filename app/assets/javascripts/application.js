@@ -18,6 +18,18 @@
 $(function(){ $(document).foundation(); });
 
 var t = new Trianglify();
+var t2 = new Trianglify();
 var pattern = t.generate(1920, 1080);
+var pattern2 = t2.generate(1920, 1080);
 
-document.getElementById("trianglify").setAttribute('style', 'background-image: '+pattern.dataUrl);
+if (document.body.className.match('registrations') ||
+	document.body.className.match('passwords') ||
+	document.body.className.match('sessions')) {
+	document.getElementById("trianglify-register").setAttribute('style', 'background-image: '+pattern2.dataUrl);	
+};
+
+if (document.body.className.match('new') ||
+	document.body.className.match('index') ||
+	document.body.className.match('profile') ) {
+			document.getElementById("trianglify").setAttribute('style', 'background-image: '+pattern.dataUrl);
+	};
