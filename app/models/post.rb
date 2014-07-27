@@ -3,8 +3,6 @@ class Post < ActiveRecord::Base
 	validates :body, presence: true, length: { minimum: 5 }
 	validates :user_id, presence: true
 
-	default_scope {order('posts.created_at DESC')}
-
 	belongs_to :user
 
 	acts_as_votable

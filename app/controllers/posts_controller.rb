@@ -3,11 +3,10 @@ class PostsController < ApplicationController
 	before_action :set_post, only: [:show, :edit, :update, :destroy, :karma_up, :karma_down]
 
 	def index
-		@posts = Post.all
+		@posts = Post.order(:cached_votes_total => :desc)
 	end
 
 	def show
-		
 	end
 
 	def new
@@ -15,7 +14,6 @@ class PostsController < ApplicationController
 	end
 
 	def edit
-		
 	end
 
 	def create
