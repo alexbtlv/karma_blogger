@@ -26,6 +26,10 @@
 				<hr>
 			</div>
 		<% end %>
-		<%= will_paginate @posts %>
+	</div>
+</div>
+<div class="row">
+	<div class="pagination-centered">
+		<%= will_paginate @posts, renderer: FoundationPagination::Rails %>
 	</div>
 </div>

@@ -11,7 +11,7 @@ gem 'jquery-rails'
 gem 'devise'
 gem 'foundation-rails'
 gem 'acts_as_votable'
-gem 'will_paginate'
+gem 'will_paginate-foundation'
 
 group :development do
 	gem 'spring'
