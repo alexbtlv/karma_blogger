@@ -6,5 +6,5 @@
 		<h5 class="text-center"><%= link_to "Karma", karma_up_post_path(@post), remote: true, method: :patch %></h5>
 	<% end %>
 <% else %>
-	<%= link_to "Sign in", new_user_session_path %>
+	<h5 class="text-center"><%= link_to "Karma", karma_up_post_path(@post), method: :patch %></h5>
 <% end %>
