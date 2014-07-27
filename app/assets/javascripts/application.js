@@ -33,7 +33,8 @@ if (document.body.className.match('registrations') ||
 };
 
 if (document.body.className.match('new') ||
-	document.body.className.match('index') ||
+	document.body.className.match('best') ||
+	document.body.className.match('fresh') ||
 	document.body.className.match('profile') ) {
 			document.getElementById("trianglify").setAttribute('style', 'background-image: '+pattern.dataUrl);
 	};

@@ -2,9 +2,13 @@ class PostsController < ApplicationController
   before_filter :authenticate_user!, only: [:new, :create, :edit, :update, :destroy, :karma_up, :karma_down]
 	before_action :set_post, only: [:show, :edit, :update, :destroy, :karma_up, :karma_down]
 
-	def index
+	def best
 		@posts = Post.order(:cached_votes_total => :desc).paginate(:page => params[:page], :per_page => 7)
 	end
+
+  def fresh
+    @posts = Post.order(created_at: :desc).paginate(:page => params[:page], :per_page => 7)
+  end
 
 	def show
 	end
