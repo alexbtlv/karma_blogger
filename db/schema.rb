@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140727121603) do
+ActiveRecord::Schema.define(version: 20140727151252) do
 
   create_table "posts", force: true do |t|
     t.string   "title"
@@ -20,8 +20,16 @@ ActiveRecord::Schema.define(version: 20140727121603) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
+    t.integer  "cached_votes_total", default: 0
+    t.integer  "cached_votes_score", default: 0
+    t.integer  "cached_votes_up",    default: 0
+    t.integer  "cached_votes_down",  default: 0
   end
 
+  add_index "posts", ["cached_votes_down"], name: "index_posts_on_cached_votes_down"
+  add_index "posts", ["cached_votes_score"], name: "index_posts_on_cached_votes_score"
+  add_index "posts", ["cached_votes_total"], name: "index_posts_on_cached_votes_total"
+  add_index "posts", ["cached_votes_up"], name: "index_posts_on_cached_votes_up"
   add_index "posts", ["slug"], name: "index_posts_on_slug"
   add_index "posts", ["user_id"], name: "index_posts_on_user_id"
 
