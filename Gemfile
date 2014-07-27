@@ -10,6 +10,7 @@ gem 'jquery-rails'
 
 gem 'devise'
 gem 'foundation-rails'
+gem 'acts_as_votable'
 
 group :development do
 	gem 'spring'

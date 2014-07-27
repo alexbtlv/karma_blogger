@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   before_filter :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
-	before_action :set_post, only: [:show, :edit, :update, :destroy]
+	before_action :set_post, only: [:show, :edit, :update, :destroy, :karma_up, :karma_down]
 	
 	def index
 		@posts = Post.all
@@ -50,6 +50,19 @@ class PostsController < ApplicationController
       format.html { redirect_to posts_url, notice: 'Article was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def karma_up
+    @post.liked_by current_user
+
+    respond_to do |format|
+      format.html { redirect_to @post, notice: "Thank you #{current_user.name.capitalize} for voting up!" }
+      format.js {}
+    end
+  end
+
+  def karma_down
+    @post.unliked_by current_user
   end
 
   private

@@ -7,6 +7,8 @@ class Post < ActiveRecord::Base
 
 	belongs_to :user
 
+	acts_as_votable
+
 	before_create :create_slug
 
 	def create_slug

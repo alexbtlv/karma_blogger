@@ -8,6 +8,8 @@ class User < ActiveRecord::Base
 	validates :name, presence: true, uniqueness: true
 
   has_many :posts, dependent: :destroy
+
+  acts_as_voter
 	
 	before_create :downcase_name, :downcase_email
 
