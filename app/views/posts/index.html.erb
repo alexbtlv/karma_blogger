@@ -8,16 +8,23 @@
 <div class="row collapse">
     <div class="small-12 small-centered columns">
 		<% @posts.each do |post| %>
-			<div class="small-12 column preview">
-				<h6 class="subheader">Written by <%= link_to post.user.name.capitalize, profile_path(post.user) %></h6>
+			<div class="preview">
+				<div class="small-10 column">
+					<div class="small-12 column">
+						<h6 class="subheader">Written by <%= link_to post.user.name.capitalize, profile_path(post.user) %></h6>
+					</div>
+					<div class="small-12 columns truncate" title="<%= post.title.capitalize %>">
+						<h3 class="truncate" title="<%= post.title.capitalize %>"><%= link_to post.title.capitalize, post_path(post) %></h3>
+					</div>
+					<div class="small-12 columns">
+						<p class="truncate"><%= post.body %></p>
+					</div>	
+				</div>
+				<div class="small-2 column karma-wrapper">
+					<h1 class="text-center karma-counter"><%= post.votes_for.size %></h1>
+				</div>
+				<hr>
 			</div>
-			<div class="small-12 columns truncate" title="<%= post.title.capitalize %>">
-				<h3 class="truncate" title="<%= post.title.capitalize %>"><%= link_to post.title.capitalize, post_path(post) %></h3>
-			</div>
-			<div class="small-12 columns">
-				<p class="truncate"><%= post.body %></p>
-			</div>
-			<hr>
 		<% end %>
 	</div>
 </div>
