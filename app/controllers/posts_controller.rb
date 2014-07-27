@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
-  before_filter :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
+  before_filter :authenticate_user!, only: [:new, :create, :edit, :update, :destroy, :karma_up, :karma_down]
 	before_action :set_post, only: [:show, :edit, :update, :destroy, :karma_up, :karma_down]
-	
+
 	def index
 		@posts = Post.all
 	end

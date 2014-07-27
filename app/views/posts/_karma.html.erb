@@ -1,0 +1,10 @@
+<h1 class="text-center karma-counter"><%= @post.votes_for.size %></h1>
+<% if user_signed_in? %>
+	<% if current_user.voted_for? @post %>
+		<h5 class="text-center"> <%= link_to "Karma", karma_down_post_path(@post), remote: true, method: :patch %></h5>
+	<% else %>
+		<h5 class="text-center"><%= link_to "Karma", karma_up_post_path(@post), remote: true, method: :patch %></h5>
+	<% end %>
+<% else %>
+	<%= link_to "Sign in", new_user_session_path %>
+<% end %>

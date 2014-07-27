@@ -19,6 +19,13 @@
 	</div>
 </div>
 <div class="row">
+	<div class="small-6 small-centered medium-4 medium-centered large-2 large-centered columns">
+		<div id="karma">
+			<%= render 'karma' %>
+		</div>
+	</div>
+</div>
+<div class="row">
 	<div class="small-12 small-centered medium-6 medium-centered columns text-center">
 		<% if @post.user == current_user %>
 			<em><%= link_to "Edit", edit_post_path(@post) %></em>
@@ -27,11 +34,5 @@
 		<% end %>
 	</div>
 </div>
-<div class="row">
-	<div class="small-12 coulmn">
-		<%= link_to "Karma Plus", karma_up_post_path(@post), remote: true, method: :patch %>
-		<div id="karma"><%= @post.votes_for.size %></div>
-		<%= link_to "Karma Down", karma_down_post_path(@post), remote: true, method: :patch %>
-	</div>
-</div>
+	
 <div class="row paragraph-last"></div>

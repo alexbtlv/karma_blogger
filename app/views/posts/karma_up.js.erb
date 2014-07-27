@@ -1,1 +1,1 @@
-$('#karma').html('<%= @post.votes_for.size %>')
+$("#karma").html("<%= escape_javascript(render('karma')) %>")
