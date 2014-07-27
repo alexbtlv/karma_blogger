@@ -1,7 +1,7 @@
 <div id="trianglify">
 	<div class="row">
 		<div class="small-12 small-centered columns">
-			<h1 class="text-center"><%= @user.name.capitalize %></h1>
+			<h1 class="text-center"><%= @user.name.split.map(&:capitalize)*' ' %></h1>
 		</div>
 	</div>
 </div>
@@ -9,7 +9,7 @@
     <div class="small-12 small-centered columns">
     	<% @posts.each do |post| %>
 			<div class="small-12 column preview">
-				<h6 class="subheader">Written by <%= link_to post.user.name.capitalize, profile_path(post.user) %></h6>
+				<h6 class="subheader">Written by <%= link_to post.user.name.split.map(&:capitalize)*' ', profile_path(post.user) %></h6>
 			</div>
 			<div class="small-12 columns truncate" title="<%= post.title.capitalize %>">
 				<h3 class="truncate" title="<%= post.title.capitalize %>"><%= link_to post.title.capitalize, post_path(post) %></h3>

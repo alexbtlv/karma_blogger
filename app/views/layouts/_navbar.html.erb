@@ -14,7 +14,7 @@
       	<% if user_signed_in? %>
       	<li><%= link_to "New Story", new_post_path %></li>
       		<li class="has-dropdown">
-         			<a href="#"><%= current_user.name.capitalize %></a>
+         			<a href="#"><%= current_user.name.split.map(&:capitalize)*' ' %></a>
          			<ul class="dropdown">
                 <li><%= link_to "Profile", profile_path(current_user) %></li>
          				<li><%= link_to "Settings" , edit_user_registration_path(current_user) %></li>
