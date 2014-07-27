@@ -31,5 +31,8 @@ group :test do
   gem 'shoulda-matchers', '~> 2.6.0'
 end
 
+group :production do
+  gem 'rails_12factor'
+end
 
 ruby '2.1.2'
