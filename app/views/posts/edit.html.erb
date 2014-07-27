@@ -1,17 +1,32 @@
 <div class="row">
-	<div class="small-12 columns">
+	<div class="small-12 column">
+		<h2 class="text-center">Edit Article</h2><br/>
+		<h3 class="text-center"><%= @post.title %></h3>
+	</div>
+    <div class="small-6 small-centered medium-4 medium-centered large-2 large-centered columns">
+      <hr>
+    </div>
+	<div class="small-12 small-centered medium-10 medium-centered large-8 large-centered columns">
 		<%= form_for(@post) do |f| %>
-			<div class="field">
-				<%= f.label :title %>
-				<%= f.text_field :title %>
+			<div class="preview">	
+				<div class="row">
+					<div class="small-12 column">
+						<%= f.label :title, "Title" %>
+						<%= f.text_field :title, :placeholder => "Are you sure you want to delete title?" %>
+					</div>
+				</div>
+				<div class="row">
+					<div class="small-12 column">
+						<%= f.label :body, "Article" %>
+						<%= f.text_area :body, id: "expand",:placeholder => "Either write something worth reading or do something worth writing. Benjamin Franklin"  %>
+					</div>
+				</div>
 			</div>
-			<div class="field">
-				<%= f.label :body %>
-				<%= f.text_field :body %>
-			</div>
-
-			<div class="actions">
-		    	<%= f.submit %>
+			<div class="row">
+				<div class="small-6 small-centered column">
+					<%= f.submit "Update", class: "button round expand" %>
+					<%= link_to "Delete Article", @post, method: :delete, class: 'button alert round expand', data: { confirm: "Are you sure?" } %>
+				</div>
 		  	</div>
 		<% end %>
 	</div>
