@@ -30,3 +30,6 @@ group :test do
   gem "capybara-email", "~> 2.2.0"
   gem 'shoulda-matchers', '~> 2.6.0'
 end
+
+
+ruby '2.1.2'
