@@ -17,6 +17,10 @@
 
 $(function(){ $(document).foundation(); });
 
+$(document).ready(function(){
+    $('textarea').autosize();   
+});
+
 var t = new Trianglify();
 var t2 = new Trianglify();
 var pattern = t.generate(1920, 1080);

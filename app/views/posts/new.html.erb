@@ -6,19 +6,21 @@
 	</div>
 </div>
 <div class="row">
-	<div class="small-12 columns">
+	<div class="small-12 small-centered medium-10 medium-centered large-8 large-centered columns">
 		<%= form_for(@post) do |f| %>
-			<div class="field">
-				<%= f.label :title %>
-				<%= f.text_field :title %>
+			<div class="preview">
+				<%= f.label :title, "Title here" %>
+				<%= f.text_field :title, :placeholder => "Start typing your idea here..." %>
 			</div>
 			<div class="field">
-				<%= f.label :body %>
-				<%= f.text_field :body %>
+				<%= f.label :body, "Article" %>
+				<%= f.text_area :body, id: "expand",:placeholder => "Either write something worth reading or do something worth writing. Benjamin Franklin"  %>
 			</div>
 
-			<div class="actions">
-		    	<%= f.submit %>
+			<div class="row">
+				<div class="small-6 small-centered column">
+					<%= f.submit "Publish", class: "button round expand" %>
+				</div>
 		  	</div>
 		<% end %>
 	</div>

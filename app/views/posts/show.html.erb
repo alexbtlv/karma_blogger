@@ -5,12 +5,12 @@
 </div>
 <div class="row">
 	<div class="small-12 small-centered medium-12 medium-centered large-10 large-centered columns">
-		<h1><%= @post.title.capitalize %></h1>
+		<h1><%= @post.title %></h1>
 	</div>
 </div>
 <div class="row">
 	<div class="small-12 small-centered medium-12 medium-centered large-10 large-centered columns">
-		<p><%= @post.body %></p>
+		<p><%= simple_format(@post.body) %></p>
 	</div>
 </div>
 <div class="row">
