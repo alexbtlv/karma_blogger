@@ -1,0 +1,10 @@
+footer {
+    position: absolute;
+    width: 100%;
+	clear: both;
+    bottom: 0;
+	padding: 0;
+    margin: 0;
+    height: 100px; /* REMEMBER height = padding-bottom from('#content) */
+    background: #fff;
+}

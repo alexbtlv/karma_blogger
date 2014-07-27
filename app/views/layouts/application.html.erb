@@ -11,15 +11,19 @@
   </head>
 
   <body class="<%= controller_name %> <%= action_name %>">
-    <%= render partial: 'layouts/navbar' %>
-    <% flash.each do |type, message| %>
-    <div data-alert class="flash alert-box text-center <%= type %>">
-      <%= message %>
-        <a href="#" class="close">&times;</a>
+    <div id="wrapper">
+      <%= render partial: 'layouts/navbar' %>
+      <% flash.each do |type, message| %>
+      <div data-alert class="flash alert-box text-center <%= type %>">
+        <%= message %>
+          <a href="#" class="close">&times;</a>
+      </div>
+      <% end %>
+      <div id="content">
+        <%= yield %>
+      </div>
+      <%= render partial: 'layouts/footer' %>
+      <%= javascript_include_tag "application" %>
     </div>
-    <% end %>
-    <%= yield %>
-    <%= render partial: 'layouts/footer' %>
-    <%= javascript_include_tag "application" %>
   </body>
 </html>

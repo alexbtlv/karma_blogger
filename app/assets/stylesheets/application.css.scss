@@ -19,12 +19,23 @@
 @import 'modules/mixins';
 @import 'modules/helpers';
 @import 'partials/icons';
+@import 'partials/footer';
 @import 'partials/posts';
 @import 'partials/profile';
 
 html, body {
     height: 100%;
     margin: 0;
+    padding: 0;
+}
+
+#wrapper {
+    min-height: 100%;
+    position: relative;
+}
+
+#content {
+    padding-bottom: 100px; /* ATTENTION! padding-bottom should be equal to the footer height (this keeps the footer from overlapping the content) */
 }
 
 #trianglify-register {
