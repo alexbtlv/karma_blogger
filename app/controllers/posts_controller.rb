@@ -3,7 +3,7 @@ class PostsController < ApplicationController
 	before_action :set_post, only: [:show, :edit, :update, :destroy, :karma_up, :karma_down]
 
 	def index
-		@posts = Post.order(:cached_votes_total => :desc)
+		@posts = Post.order(:cached_votes_total => :desc).paginate(:page => params[:page], :per_page => 7)
 	end
 
 	def show
