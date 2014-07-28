@@ -13,21 +13,21 @@
       <ul class="right">
       	<% if user_signed_in? %>
       	<li><%= link_to content_tag(:i,"New Story", :class=>"fa fa-pencil-square-o fa-lg"), new_post_path %></li>
-      		<li class="has-dropdown">
-         			<a href="#"><i class="fa fa-lg"><%= current_user.name.split.map(&:capitalize)*' ' %></i></a>
-           			<ul class="dropdown list-group">
-                  <li><%= link_to content_tag(:i,"Profile", :class=>"fa fa-user fa-lg"), profile_path(current_user) %></li>
-           				<li><%= link_to content_tag(:i,"Settings", :class=>"fa fa-cog fa-lg"), edit_user_registration_path(current_user) %></li>
-    	          	<li><%= link_to content_tag(:i,"Sign Out", :class=>"fa fa-sign-out fa-lg"), destroy_user_session_path, class: "list-group-item", method: :delete %></li>
-    	        	</ul>
-         		</li>
+      	<li class="has-dropdown">
+         	<a href="#"><i class="fa fa-lg"><%= current_user.name.split.map(&:capitalize)*' ' %></i></a>
+          <ul class="dropdown list-group">
+            <li><%= link_to content_tag(:i,"Profile", :class=>"fa fa-user fa-lg"), profile_path(current_user) %></li>
+            <li><%= link_to content_tag(:i,"Settings", :class=>"fa fa-cog fa-lg"), edit_user_registration_path(current_user) %></li>
+            <li><%= link_to content_tag(:i,"Sign Out", :class=>"fa fa-sign-out fa-lg"), destroy_user_session_path, class: "list-group-item", method: :delete %></li>
+          </ul>
+        </li>
   	    <% else %>
-          <li>
-            <%= link_to content_tag(:i,"Sign Up", :class=>"fa fa-users fa-lg"), new_user_registration_path %>
-          </li>
-  	    	<li>
-  	    		<%= link_to content_tag(:i,"Sign In", :class=>"fa fa-sign-in fa-lg"), new_user_session_path %>
-  	    	</li>
+        <li>
+          <%= link_to content_tag(:i,"Sign Up", :class=>"fa fa-users fa-lg"), new_user_registration_path %>
+        </li>
+  	    <li>
+  	    	<%= link_to content_tag(:i,"Sign In", :class=>"fa fa-sign-in fa-lg"), new_user_session_path %>
+  	    </li>
   	    <% end %>
       </ul>
 
