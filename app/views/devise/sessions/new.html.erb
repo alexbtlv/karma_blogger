@@ -7,23 +7,22 @@
 	  <div class="small-12 column">
 	  	<h2 class="text-center">Sign in</h2>
 	  </div>
-		<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+		<%= form_for(resource, as: resource_name, url: session_path(resource_name), :html => { "data-abide" => '' }) do |f| %>
 
 		<div class="row">
-		  <div class="small-3 column">
-		  	<%= f.label :email, class: "right inline" %>
-		  </div>
-		  <div class="small-9 column">
-		    <%= f.email_field :email, autofocus: true, id: "right-label" %>
+		  <div class="small-12 column">
+		  	<label>Email <small>required</small>
+		    <%= f.email_field :email, autofocus: true %>
+		    </label>
+		    <small class="error">An email address is required.</small>
 		  </div>
 		</div>
 
 		<div class="row">
-		  <div class="small-3 column">
-		  	<%= f.label :password, class: "right inline" %>
-		  </div>
-		  <div class="small-9 column">
-		    <%= f.password_field :password, autocomplete: "off", id: "right-label" %>
+		  <div class="small-12 column">
+		  	<label>Password <small>required</small>
+		    <%= f.password_field :password, autocomplete: "off" %>
+		    </label>
 		  </div>
 		</div>
 		<% if devise_mapping.rememberable? -%>
