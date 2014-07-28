@@ -12,14 +12,14 @@
       <!-- Right Nav Section -->
       <ul class="right">
       	<% if user_signed_in? %>
-      	<li><%= link_to "New Story", new_post_path %></li>
+      	<li><%= link_to content_tag(:i,"New Story", :class=>"fa fa-pencil-square-o fa-lg"), new_post_path %></li>
       		<li class="has-dropdown">
-         			<a href="#"><%= current_user.name.split.map(&:capitalize)*' ' %></a>
-         			<ul class="dropdown">
-                <li><%= link_to "Profile", profile_path(current_user) %></li>
-         				<li><%= link_to "Settings" , edit_user_registration_path(current_user) %></li>
-  	          	<li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
-  	        	</ul>
+         			<a href="#"><i class="fa fa-lg"><%= current_user.name.split.map(&:capitalize)*' ' %></i></a>
+           			<ul class="dropdown list-group">
+                  <li><%= link_to content_tag(:i,"Profile", :class=>"fa fa-user fa-lg"), profile_path(current_user) %></li>
+           				<li><%= link_to content_tag(:i,"Settings", :class=>"fa fa-cog fa-lg"), edit_user_registration_path(current_user) %></li>
+    	          	<li><%= link_to content_tag(:i,"Sign Out", :class=>"fa fa-sign-out fa-lg"), destroy_user_session_path, class: "list-group-item", method: :delete %></li>
+    	        	</ul>
          		</li>
   	    <% else %>
           <li>
@@ -33,8 +33,8 @@
 
       <!-- Left Nav Section -->
       <ul class="left">
-        <li><%= link_to "Best Reading", root_path %></li>
-        <li><%= link_to "Fresh Articles", fresh_posts_path %></li>
+        <li><%= link_to content_tag(:i,"Best Reading", :class=>"fa fa-book fa-lg"), root_path %></li>
+        <li><%= link_to content_tag(:i,"Fresh Articles", :class=>"fa fa-leaf fa-lg"), fresh_posts_path %></li>
       </ul>
     </section>
   </nav>

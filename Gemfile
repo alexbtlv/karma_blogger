@@ -12,6 +12,7 @@ gem 'devise'
 gem 'foundation-rails'
 gem 'acts_as_votable'
 gem 'will_paginate-foundation'
+gem 'font-awesome-sass'
 
 group :development do
 	gem 'spring'
