@@ -29,7 +29,9 @@
 	</div>
 </div>
 <div class="row">
-	<div class="pagination-centered">
-		<%= will_paginate @posts, renderer: FoundationPagination::Rails %>
+	<div class="small-12 small-centered column">
+		<div class="pagination-centered">
+			<%= will_paginate @posts, renderer: FoundationPagination::Rails %>
+		</div>
 	</div>
 </div>
