@@ -1,43 +1,40 @@
 <div id="trianglify-register">
-  <div class="row">
+  <div class="row pull-down">
     <div class="small-12 small-centered medium-8 medium-centered large-6 large-centered columns">
-      <h2 class="text-center">Sign up</h2>
+      <div class="small-6 small-centered column text-center">
+        <i class="fa fa-users fa-3x"></i>
+      </div>
+      <div class="small-12 column">
+        <h2 class="text-center">Sign up</h2>
+      </div>
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
         <%= devise_error_messages! %>
 
         <div class="row">
-          <div class="small-5 column">
-            <%= f.label :name, class: "right inline" %>
-          </div>
-          <div class="small-7 column">
-            <%= f.text_field :name, autofocus: true, id: "right-label" %>
+          <div class="small-12 column">
+            <%= f.label :name %>
+            <%= f.text_field :name, autofocus: true %>
           </div>
         </div>
 
         <div class="row">
-          <div class="small-5 column">
-            <%= f.label :email, class: "right inline" %>
-          </div>
-          <div class="small-7 column">
-            <%= f.email_field :email, id: "right-label"  %>
+          <div class="small-12 column">
+            <%= f.label :email %>
+            <%= f.email_field :email  %>
           </div>
         </div>
 
         <div class="row">
-          <div class="small-5 column">
-            <%= f.label :password, class: "right inline" %>
-          </div>
-          <div class="small-7 column">
-            <%= f.password_field :password, autocomplete: "off", id: "right-label" %>
+          <div class="small-12 column">
+            <%= f.label :password %>
+            <%= f.password_field :password %>
           </div>
         </div>
 
         <div class="row">
-          <div class="small-5 column">
-            <%= f.label :password_confirmation, class: "right inline" %>
-          </div>
-          <div class="small-7 column">
-            <%= f.password_field :password_confirmation, autocomplete: "off",  id: "right-label" %>
+          <div class="small-12 column">
+            <%= f.label :password_confirmation %>
+            <%= f.password_field :password_confirmation, autocomplete: "off"%>
           </div>
         </div>
         <div class="row">

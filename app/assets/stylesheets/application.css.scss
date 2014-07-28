@@ -37,9 +37,9 @@ html, body {
 }
 
 #content {
-    padding-bottom: 100px; /* ATTENTION! padding-bottom should be equal to the footer height (this keeps the footer from overlapping the content) */
+    padding-bottom: $footer_height; /* ATTENTION! padding-bottom should be equal to the footer height (this keeps the footer from overlapping the content) */
 }
 
-#trianglify-register {
-	min-height: 100%;
+.pull-down {
+	padding-top:50px;
 }

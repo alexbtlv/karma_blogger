@@ -26,10 +26,10 @@ var t2 = new Trianglify();
 var pattern = t.generate(1920, 1080);
 var pattern2 = t2.generate(1920, 1080);
 
-if (document.body.className.match('registrations') ||
+if ((document.body.className.match('registrations') && document.body.className.match('new'))||
 	document.body.className.match('passwords') ||
 	document.body.className.match('sessions')) {
-	document.getElementById("trianglify-register").setAttribute('style', 'background-image: '+pattern2.dataUrl);	
+	document.getElementById("wrapper").setAttribute('style', 'background-image: '+pattern2.dataUrl);	
 };
 
 if (document.body.className.match('new') ||
