@@ -17,10 +17,6 @@
 
 $(function(){ $(document).foundation(); });
 
-$(document).ready(function(){
-    $('textarea').autosize();   
-});
-
 if (document.body.className.match('registrations') && document.body.className.match('new'))  {
 	$(".top-bar-section .right li").eq(0).addClass("active");
 };
@@ -41,14 +37,11 @@ if (document.body.className.match('posts') && document.body.className.match('new
 	$(".top-bar .right li").eq(0).addClass("active");
 };
 
-var t = new Trianglify();
-var t2 = new Trianglify();
-var pattern = t.generate(1920, 1080);
-var pattern2 = t2.generate(1920, 1080);
-
 if ((document.body.className.match('registrations') && document.body.className.match('new'))||
 	document.body.className.match('passwords') ||
 	document.body.className.match('sessions')) {
+	var t2 = new Trianglify();
+	var pattern2 = t2.generate(1920, 1080);
 	document.getElementById("wrapper").setAttribute('style', 'background-image: '+pattern2.dataUrl);	
 };
 
@@ -56,5 +49,10 @@ if ((document.body.className.match('new') && document.body.className.match('post
 	document.body.className.match('best') ||
 	document.body.className.match('fresh') ||
 	document.body.className.match('profile') ) {
+			var t = new Trianglify();
+			var pattern = t.generate(1920, 1080);
 			document.getElementById("trianglify").setAttribute('style', 'background-image: '+pattern.dataUrl);
+			$(document).ready(function(){
+    		$('textarea').autosize();   
+});
 	};
