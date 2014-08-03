@@ -65,6 +65,11 @@ class PostsController < ApplicationController
 
   def karma_down
     @post.unliked_by current_user
+
+    respond_to do |format|
+      format.html { redirect_to @post, notice: "Thank you for voting!" }
+      format.js {}
+    end
   end
 
   private
