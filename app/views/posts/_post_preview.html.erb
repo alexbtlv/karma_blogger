@@ -1,0 +1,24 @@
+<% @posts.each do |post| %>
+	<div class="preview">
+		<div class="small-10 column">
+			<div class="small-12 column">
+				<h6 class="subheader">Written by <%= link_to post.user.name.split.map(&:capitalize)*' ', profile_path(post.user) %></h6>
+			</div>
+			<div class="small-12 columns truncate" title="<%= post.title.capitalize %>">
+				<h3 class="truncate" title="<%= post.title.capitalize %>"><%= link_to post.title.capitalize, post_path(post) %></h3>
+			</div>
+			<div class="small-12 columns">
+				<p class="truncate"><%= post.body %></p>
+			</div>
+			<div class="small-12 column" id="liked-by">	
+				<% if post.cached_votes_total > 1 %>
+					<em>Liked by <%= link_to User.find(post.get_likes.last.voter_id).name.split.map(&:capitalize)*' ', profile_path(User.find(post.get_likes.last.voter_id)) %> and more...</em>
+				<% end %>
+			</div>
+		</div>
+		<div class="small-2 column karma-wrapper">
+			<h1 class="text-center karma-counter"><%= post.votes_for.size %></h1>
+		</div>
+		<hr>
+	</div>
+<% end %>
