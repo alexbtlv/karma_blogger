@@ -22,14 +22,14 @@ group :development do
 end
 
 group :development, :test do
-  gem 'rspec-rails', '~> 2.0'
-  gem "factory_girl_rails", "~> 4.0"
+  gem 'rspec-rails'
+  gem "factory_girl_rails"
 end
 
 group :test do
-  gem 'capybara', '~> 2.1.0'
-  gem "capybara-email", "~> 2.2.0"
-  gem 'shoulda-matchers', '~> 2.6.0'
+  gem 'capybara'
+  gem "capybara-email"
+  gem 'shoulda-matchers'
 end
 
 group :production do
