@@ -10,10 +10,11 @@ describe "posts/best" do
 
 		render :template => "posts/_post_preview.html.erb", :locals => {:posts => :posts}
 		expect(rendered).to match /Title/
+		expect(rendered).to match /Post body/
 	end
 
 	# it "renders the post partial for each post" do
-	#     assign(:posts, [
+	#     assign(:post, [
 	#       double(:name => "First"),
 	#       double(:name => "Second")
 	#     ])
