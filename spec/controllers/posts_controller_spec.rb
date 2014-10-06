@@ -9,7 +9,7 @@ describe PostsController do
 			it "assigns best posts as @posts" do
 				post = user.posts.create! valid_attributes
 				get :best
-				assigns(:posts).should eq([post])
+				expect(assigns(:posts)).to   eq([post])
 			end
 		end
 	end
@@ -19,7 +19,7 @@ describe PostsController do
 			it "assigns fresh posts as @posts" do
 				post = user.posts.create! valid_attributes
 				get :fresh
-				assigns(:posts).should eq([post])
+				expect(assigns(:posts)).to   eq([post])
 			end
 		end
 	end
@@ -98,13 +98,13 @@ describe PostsController do
 
 				it "assigns newly created post as @post" do
 					post :create, {:post => valid_attributes}
-					assigns(:post).should be_a(Post)
-					assigns(:post).should be_persisted
+					expect(assigns(:post)).to   be_a(Post)
+					expect(assigns(:post)).to   be_persisted
 				end
 
 				it "redirects to created post" do
 					post :create, {:post => valid_attributes}
-					response.should redirect_to(post_path(Post.last))
+					expect(response).to   redirect_to(post_path(Post.last))
 				end
 
 				it "creates a post for the current user" do
@@ -123,16 +123,16 @@ describe PostsController do
 
 			describe "with invalid params" do
 				it "assigns a newly created but unsaved post as @post" do
-					Post.any_instance.stub(:save).and_return(false)
+					allow_any_instance_of(Post).to  receive(:save).and_return(false)
 					post :create, {:post => {"title" => "invalid value"}}
-					assigns(:post).should be_a_new(Post)
+					expect(assigns(:post)).to   be_a_new(Post)
 					expect(assigns(:post).user).to eq(user)
 				end
 
 				it "re-renders the 'new' template" do
-					Post.any_instance.stub(:save).and_return(false)
+					allow_any_instance_of(Post).to receive(:save).and_return(false)
 					post :create, {:post => {"title" => "invalid value"}}
-					response.should render_template("new")
+					expect(response).to   render_template("new")
 				end
 			end
 		end
@@ -159,37 +159,37 @@ describe PostsController do
 			describe "with valid params" do
 				it "updates the requsted post" do
 					post = user.posts.create! valid_attributes
-					Post.any_instance.should_receive(:update).with({ "title" => "My new title"})
+					expect_any_instance_of(Post).to receive(:update).with({ "title" => "My new title"})
 					put :update, { :id => post.to_param, :post => { "title" => "My new title" } }
 				end
 
 				it "assigns requsted post as @post" do
 					post = user.posts.create! valid_attributes
 					put :update, { :id => post.to_param, :post => valid_attributes }
-					assigns(:post).should eq(post)
+					expect(assigns(:post)).to   eq(post)
 					expect(assigns(:post).user).to eq(user)  
 				end
 
 				it "redirects to the post" do
 					post = user.posts.create! valid_attributes
 					put :update, { :id => post.to_param, :post => valid_attributes }
-					response.should redirect_to(post_path(post))
+					expect(response).to   redirect_to(post_path(post))
 				end
 			end
 
 			describe "with invalid params" do
 				it "assigns the requested post as @post" do
 					post = user.posts.create! valid_attributes
-					Post.any_instance.stub(:save).and_return(false)
+					allow_any_instance_of(Post).to receive(:save).and_return(false)
 					put :update, {:id => post.to_param, :post => {"title" => "Wrong title"}}
-					assigns(:post).should eq(post)
+					expect(assigns(:post)).to   eq(post)
 				end
 
 				it "re-renders the 'edit' template" do
 					post = user.posts.create! valid_attributes
-					Post.any_instance.stub(:save).and_return(false)
+					allow_any_instance_of(Post).to receive(:save).and_return(false)
 					put :update, {:id => post.to_param, :post => {"title" => "Wrong title"}}
-					response.should render_template("edit")
+					expect(response).to   render_template("edit")
 				end
 			end
 		end
@@ -224,7 +224,7 @@ describe PostsController do
 			it "redirects to the best posts" do
 				post = user.posts.create! valid_attributes
 				delete :destroy, {:id => post.to_param}
-				response.should redirect_to(posts_url)
+				expect(response).to   redirect_to(posts_url)
 			end
 		end
 	end
